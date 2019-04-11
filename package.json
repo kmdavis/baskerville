@@ -1,45 +1,70 @@
 {
-  "name": "baskerville",
-  "title": "Baskerville",
-  "description": "CHANGEME",
-  "version": "0.1.0",
-  "homepage": "https://github.com/kmdavis/baskerville",
-  "licenses": [{
-    "type": "Apache v2",
-    "url": "https://github.com/kmdavis/baskerville/blob/master/LICENSE"
-  }],
-  "keywords": ["agent string"],
-  "author": {
-    "name": "Kevan Davis",
-    "email": "kevan.davis@me.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/kmdavis/baskerville.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kmdavis/baskerville/issues"
-  },
-  "main": "lib/baskerville.js",
-  "devDependencies": {
-    "grunt": "0.4.x",
-    "grunt-contrib-clean": "0.5.x",
-    "grunt-contrib-concat": "0.4.x",
-    "grunt-contrib-jasmine": "0.6.x",
-    "grunt-contrib-jshint": "0.10.x",
-    "grunt-contrib-uglify": "0.5.x",
-    "grunt-contrib-watch": "0.6.x",
-    "grunt-coveralls": "0.3.x",
-    "grunt-karma": "0.8.x",
-    "grunt-release": "0.7.x",
-    "grunt-replace": "0.7.x",
-    "groc": "0.6.x",
-    "karma-coverage": "0.2.x",
-    "karma-jasmine": "0.2.x",
-    "karma-requirejs": "0.2.x",
-    "karma-phantomjs-launcher": "0.1.x"
-  },
-  "scripts": {
-    "test": "grunt test"
-  }
+    "name": "baskerville",
+    "title": "Baskerville",
+    "description": "Sir Arthur Conan Doyle's The Hound of the User Agent",
+    "version": "0.2.0",
+    "homepage": "https://github.com/kmdavis/baskerville",
+    "licenses": "MIT",
+    "keywords": [
+        "useragent",
+        "user agent",
+        "agent string",
+        "useragent string",
+        "user agent string"
+    ],
+    "author": "Kevan Davis <kevan.davis@me.com>",
+    "repository": "github:kmdavis/baskerville.git",
+    "bugs": "https://github.com/kmdavis/baskerville/issues",
+    "module": "src/index.js",
+    "main": "dist/index.js",
+    "dependencies": {
+        "lodash": "^4.17.11",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "styled-components": "^4.2.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.4.3",
+        "@babel/core": "^7.4.3",
+        "@babel/plugin-proposal-class-properties": "^7.4.0",
+        "@babel/plugin-proposal-decorators": "^7.4.0",
+        "@babel/plugin-transform-modules-umd": "^7.2.0",
+        "@babel/polyfill": "^7.4.3",
+        "@babel/preset-env": "^7.4.3",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/register": "^7.4.0",
+        "@babel/runtime": "^7.4.3",
+        "babel-eslint": "10.0.1",
+        "babel-plugin-add-header-comment": "^1.0.3",
+        "chai": "^4.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-promise": "^4.1.1",
+        "eslint-plugin-react": "^7.12.4",
+        "jest": "^24.7.1",
+        "sinon": "^7.3.1",
+        "sinon-chai": "^3.3.0",
+        "sinon-test": "^2.4.0",
+        "stylelint": "^9.10.1",
+        "stylelint-config-recommended": "^2.1.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-no-unsupported-browser-features": "^3.0.2",
+        "stylelint-processor-styled-components": "^1.6.0"
+    },
+    "jest": {
+        "coveragePathIgnorePatterns": [
+            "setup_tests.js"
+        ],
+        "setupFilesAfterEnv": ["./setup_tests"],
+        "transform": {
+            "^.+\\.js$": "babel-jest"
+        }
+    },
+    "scripts": {
+        "build": "mkdir -p dist && babel src --out-dir dist && rm -rf dist/__tests__",
+        "lint": "eslint src && stylelint src",
+        "test": "jest"
+    }
 }

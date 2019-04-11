@@ -1,7 +1,6 @@
 node_modules
-.grunt
 coverage
-Firefox*
-Chrome*
-Safari*
-test-results.xml
+package-lock.json
+npm-debug.log
+.DS_Store
+.vscode
