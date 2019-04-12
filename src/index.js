@@ -1,7 +1,5 @@
 /* eslint-disable no-param-reassign */
 
-import { version as pkgVersion } from "../package.json";
-
 const IN_PARENS_EXTRACTOR = new RegExp(
     "\\(" // begin parens
         + "(?!like)" // ignore if it starts with "like", e.g. KHTML/4.4.3 (like Gecko)
@@ -35,7 +33,9 @@ const OUT_PARENS_MATCHER = new RegExp(
     "g",
 );
 
+// eslint-disable-next-line max-len
 const BROWSERS = /^applewebkit|camino|chrome|chromeframe|edge|firefox|fluid|gecko|(?:ms)?ie(?: mobile)?|khtml|konqueror|mozilla|opera(?: mobi| mini)?|presto|safari|samsung internet|trident|(?:android|baidu|blackberry|qq|uc) browser$/i;
+// eslint-disable-next-line max-len
 const OPERATING_SYSTEMS = /^android|beos|blackberry|cri?os|kubuntu|(?:freebsd|linux|openbsd)(?: \w*)?|macintosh|mac_powerpc|macos|(?:intel|ppc)? ?mac os x|sunos|symbos|ubuntu|win(?:dows )?(?:95|98|nt|ce)?$/i;
 
 const processors = [
@@ -282,12 +282,10 @@ const Baskerville = {
     process: processTokens,
     registerProcessor,
     tokenize: tokenizeUserAgent,
-    version: pkgVersion,
 };
 
 export default Baskerville;
 export {
-    pkgVersion as version,
     processTokens as process,
     registerProcessor,
     tokenizeUserAgent as tokenize,

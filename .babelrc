@@ -1,16 +1,13 @@
 {
     "compact": false,
-    "presets": ["@babel/preset-env", "@babel/preset-react"],
+    "presets": ["@babel/preset-env"],
     "plugins": [
         ["@babel/plugin-transform-modules-umd", {
             "exactGlobals": true,
             "globals": {
-                "index": "ChangeMe"
+                "index": "Baskerville"
             }
         }],
-        // https://babeljs.io/docs/en/babel-plugin-proposal-decorators#note-compatibility-with-babel-plugin-proposal-class-properties
-        ["@babel/plugin-proposal-decorators", { "legacy": true }],
-        ["@babel/plugin-proposal-class-properties", { "loose": true }],
         ["add-header-comment", {
             "header": ["eslint-disable"],
             "commentStart": " ",

@@ -1,4 +1,6 @@
 import * as baskerville from "..";
+import { random as randomUserAgent } from "user-agents";
+import { parse as parseUserAgent } from "useragent";
 
 describe("Baskerville", function () {
     const expectedTokens = [
@@ -302,6 +304,46 @@ describe("Baskerville", function () {
                 type: "locale",
                 name: "en-US",
             });
+        });
+    });
+
+    describe("with random data", () => {
+        it("should process appropriately and not fail", () => {
+            const standardVersion = v => (v && v.split(".")
+                .concat(["0", "0", "0"]).slice(0, 3).join(".")) || "0.0.0";
+            Array(1000).fill().map(() => randomUserAgent().toString())
+                .forEach((ua) => {
+                    // NOTE: Safari & Android are disabled because the `useragent` lib converts
+                    // the versions to something different
+                    const parsed = parseUserAgent(ua);
+                    const processed = baskerville.process(ua);
+
+                    const browsers = processed.filter(t => t.type === "browser");
+                    const browser = browsers.find(t => t.name === parsed.family);
+                    if (browser && browser.name !== "Safari") {
+                        try {
+                            expect(standardVersion(browser.version)).to.equal(parsed.toVersion());
+                        } catch (e) {
+                            // eslint-disable-next-line no-console
+                            console.log(ua);
+                            throw e;
+                        }
+                    }
+
+                    if (parsed.os && parsed.os.family !== "Android") {
+                        const oss = processed.filter(t => t.type === "os");
+                        const os = oss.find(t => t.name === parsed.os.family);
+                        if (os) {
+                            try {
+                                expect(standardVersion(os.version)).to.equal(parsed.os.toVersion());
+                            } catch (e) {
+                                // eslint-disable-next-line no-console
+                                console.log(ua);
+                                throw e;
+                            }
+                        }
+                    }
+                });
         });
     });
 });

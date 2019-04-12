@@ -1,9 +1,6 @@
 {
     "parser": "babel-eslint",
-    "extends": "airbnb",
-    "plugins": [
-        "promise"
-    ],
+    "extends": "airbnb/base",
     "rules": {
         "class-methods-use-this": 0,
         "comma-dangle": [1, {
@@ -22,9 +19,8 @@
         "import/no-named-default": 0,
         "import/no-unresolved": 0,
         "indent": ["error", 4],
-        "jsx-a11y/anchor-is-valid": 0,
         "radix": [1, "as-needed"],
-        "max-len": [1, 100, 4, { "ignoreUrls": true }],
+        "max-len": [1, 100, 4, { "ignoreUrls": true, "ignoreComments": true }],
         "no-bitwise": [2, { "allow": ["~"] }],
         "no-restricted-properties": [2, {
             "object": "arguments",
@@ -46,13 +42,6 @@
         "no-unused-vars": 0,
         "object-curly-spacing": [2, "always", { "objectsInObjects": false }],
         "quotes": [2, "double", "avoid-escape"],
-        "react/forbid-prop-types": 0,
-        "react/jsx-filename-extension": [2, { "extensions": [".js"] }],
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
-        "react/prefer-stateless-function": 0,
-        "react/prop-types": 0, // temporary since we don't actually have ANY yet
-        "react/require-default-props": 0,
         "space-before-function-paren": [2, "always"]
     },
     "env": {

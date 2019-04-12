@@ -2,17 +2,17 @@
 
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(["exports", "../package.json"], factory);
+    define(["exports"], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require("../package.json"));
+    factory(exports);
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.packageJson);
-    global.ChangeMe = mod.exports;
+    factory(mod.exports);
+    global.Baskerville = mod.exports;
   }
-})(this, function (_exports, _package) {
+})(this, function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -21,14 +21,9 @@
   _exports.process = processTokens;
   _exports.registerProcessor = registerProcessor;
   _exports.tokenize = tokenizeUserAgent;
-  Object.defineProperty(_exports, "version", {
-    enumerable: true,
-    get: function () {
-      return _package.version;
-    }
-  });
   _exports.default = void 0;
 
+  /* eslint-disable no-param-reassign */
   const IN_PARENS_EXTRACTOR = new RegExp("\\(" // begin parens
   + "(?!like)" // ignore if it starts with "like", e.g. KHTML/4.4.3 (like Gecko)
   + "(.*?)" // extract this part
@@ -49,8 +44,10 @@
   + "(?:" + "/" // name is separated from the version by a /
   + "(\\S+)" // our version field
   + ")?" + "(?:\\s+\\(like\\s+(.*?)\\))?", // and the optional "like" comment
-  "g");
-  const BROWSERS = /^applewebkit|camino|chrome|chromeframe|edge|firefox|fluid|gecko|(?:ms)?ie(?: mobile)?|khtml|konqueror|mozilla|opera(?: mobi| mini)?|presto|safari|samsung internet|trident|(?:android|baidu|blackberry|qq|uc) browser$/i;
+  "g"); // eslint-disable-next-line max-len
+
+  const BROWSERS = /^applewebkit|camino|chrome|chromeframe|edge|firefox|fluid|gecko|(?:ms)?ie(?: mobile)?|khtml|konqueror|mozilla|opera(?: mobi| mini)?|presto|safari|samsung internet|trident|(?:android|baidu|blackberry|qq|uc) browser$/i; // eslint-disable-next-line max-len
+
   const OPERATING_SYSTEMS = /^android|beos|blackberry|cri?os|kubuntu|(?:freebsd|linux|openbsd)(?: \w*)?|macintosh|mac_powerpc|macos|(?:intel|ppc)? ?mac os x|sunos|symbos|ubuntu|win(?:dows )?(?:95|98|nt|ce)?$/i;
   const processors = [
   /**
@@ -306,8 +303,7 @@
   const Baskerville = {
     process: processTokens,
     registerProcessor,
-    tokenize: tokenizeUserAgent,
-    version: _package.version
+    tokenize: tokenizeUserAgent
   };
   var _default = Baskerville;
   _exports.default = _default;
