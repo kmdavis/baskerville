@@ -163,6 +163,8 @@ npm test
     * Added a test using large numbers of randomly generated useragent strings
 * 0.2.2
     * Updating README
+* 0.2.3
+    * Removing an unused rc file
 
 ## Meta
 
