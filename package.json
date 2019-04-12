@@ -2,7 +2,7 @@
     "name": "@kmdavis/baskerville",
     "title": "Baskerville",
     "description": "Sir Arthur Conan Doyle's The Hound of the User Agent",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "homepage": "https://github.com/kmdavis/baskerville",
     "licenses": "MIT",
     "keywords": [
@@ -16,15 +16,14 @@
     "repository": "github:kmdavis/baskerville.git",
     "bugs": "https://github.com/kmdavis/baskerville/issues",
     "module": "src/index.js",
-    "main": "dist/index.js",
+    "main": "dist/baskerville.js",
     "devDependencies": {
         "@babel/cli": "^7.4.3",
         "@babel/core": "^7.4.3",
-        "@babel/plugin-transform-modules-umd": "^7.2.0",
         "@babel/polyfill": "^7.4.3",
         "@babel/preset-env": "^7.4.3",
         "babel-eslint": "10.0.1",
-        "babel-plugin-add-header-comment": "^1.0.3",
+        "babel-loader": "^8.0.5",
         "chai": "^4.2.0",
         "eslint": "^5.16.0",
         "eslint-config-airbnb": "^17.1.0",
@@ -33,7 +32,9 @@
         "sinon": "^7.3.1",
         "sinon-chai": "^3.3.0",
         "user-agents": "^1.0.223",
-        "useragent": "^2.3.0"
+        "useragent": "^2.3.0",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0"
     },
     "jest": {
         "coveragePathIgnorePatterns": [
@@ -47,7 +48,7 @@
         }
     },
     "scripts": {
-        "build": "mkdir -p dist && babel src --out-dir dist && rm -rf dist/__tests__",
+        "build": "webpack",
         "lint": "eslint src",
         "test": "jest"
     }

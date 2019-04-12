@@ -1,18 +1,4 @@
 {
     "compact": false,
     "presets": ["@babel/preset-env"],
-    "plugins": [
-        ["@babel/plugin-transform-modules-umd", {
-            "exactGlobals": true,
-            "globals": {
-                "index": "Baskerville"
-            }
-        }],
-        ["add-header-comment", {
-            "header": ["eslint-disable"],
-            "commentStart": " ",
-            "commentLineStart": "",
-            "commentEnd": " ",
-        }],
-    ]
 }
