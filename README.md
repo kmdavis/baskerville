@@ -165,6 +165,12 @@ npm test
     * Updating README
 * 0.2.3
     * Removing an unused rc file
+* 0.2.4
+    * Fixing a licensing issue
+* 0.2.5
+    * Switching to webpack
+* 0.2.6
+    * Updating readme
 
 ## Meta
 
