@@ -170,7 +170,7 @@ npm test
 
 Kevan Davis <kevan.davis@me.com>
 
-Distributed under the BSD license.
+Distributed under the MIT license.
 
 [https://github.com/kmdavis/baskerville](https://github.com/kmdavis/baskerville/)
 
