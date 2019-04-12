@@ -5,7 +5,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-TODO
+Baskerville will sniff a user agent string and provide some analysis of what it might mean.
 
 ## Installation
 
@@ -15,8 +15,7 @@ npm install @kmdavis/baskerville
 
 ## Usage
 
-Baskerville will sniff a user agent string and provide some analysis of what it
-might mean. Baskerville has 2 main methods: `tokenize`, and `process`.
+Baskerville has 2 main methods: `tokenize`, and `process`.
 
 Tokenize will return an array of tokens, for example:
 
@@ -157,6 +156,13 @@ npm test
 
 * 0.1.0
     * Initial public release
+* 0.2.0
+    * Rewrite using modern javascript
+* 0.2.1
+    * Removed unnecessary (boilerplate) dependencies
+    * Added a test using large numbers of randomly generated useragent strings
+* 0.2.2
+    * Updating README
 
 ## Meta
 
